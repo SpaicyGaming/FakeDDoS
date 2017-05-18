@@ -5,22 +5,22 @@
 ##################################
 
 #This message will be displayed if a player use "/ddos"
-NoArgsMessage: Use /ddos [player]
+NoArgsMessage: '&fUse /ddos [player]'
 
 #To use /ddos command you need the permission "fakeddos.use"
-NoDDoSPermissions: Sorry, you don't have enough permissions.
-NoReloadPermissions: Sorry, you don't have the permission 'fakeddos.reload'.
+NoDDoSPermissions: '&cSorry, you don''t have enough permissions.'
+NoReloadPermissions: '&cSorry, you don''t have the permission ''fakeddos.reload''.'
 
 #This message will be displayed if a player try to ddos himself
-AutoDDoSMessage: You can't DDoS yourself!
+AutoDDoSMessage: '&cYou can''t DDoS &lyourself!'
 
 #Title Editor       %SENDER = attacker
 UnderAttacTitle: DDoS Attac!
 UnderAttacSubtitle: From %SENDER
 
 # %TARGET = player under ddos attac
-SentDDoSMessage: You dossed %TARGET
-TargetOffline: The player "%TARGET" is not Online.
+SentDDoSMessage: 'You dossed %TARGET'
+TargetOffline: '&cThe player &o"%TARGET"&r &cis not Online.'
 
 Effects:
   Target:
@@ -32,8 +32,8 @@ Effects:
 
 #This message will be displayed if the console try to use /ddos command
 OnlyPlayerCmd: This command can only be run by a player.
-WrongCommand: This command does not exist. Please use /fakeddos.
-TooManyArgs: Too many args.
+WrongCommand: '&cThis command does not exist. Please use &l/fakeddos.'
+TooManyArgs: '&cToo many args.'
 
 ####DO NOT TOUCH###
-ConfigVersion: 1.1
+ConfigVersion: 1.2
