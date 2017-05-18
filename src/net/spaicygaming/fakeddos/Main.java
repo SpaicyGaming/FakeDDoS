@@ -23,7 +23,7 @@ import net.minecraft.server.v1_8_R3.PlayerConnection;
 
 public class Main extends JavaPlugin implements Listener {
 
-	String ver = "1.1";
+	String ver = "1.2";
 	String projectlink= "http://bit.ly/FakeDDoS";
 	String prefix = ChatColor.DARK_GRAY + " [" + ChatColor.AQUA + "Fake" + ChatColor.RED + "DDoS" + ChatColor.DARK_GRAY + "] " + ChatColor.RESET;
 	
@@ -39,7 +39,7 @@ public class Main extends JavaPlugin implements Listener {
 	    
 	    Bukkit.getServer().getPluginManager().registerEvents(this, this);
 	    saveDefaultConfig();
-	    if (!getConfig().getString("ConfigVersion").equals("1.1")) {
+	    if (!getConfig().getString("ConfigVersion").equals("1.2")) {
 	        console.sendMessage("[FakeDDoS] " + ChatColor.RED + "OUTDATED CONFIG FILE DETECTED, PLEASE DELETE THE OLD ONE!");
 	    }
 	}	
@@ -58,21 +58,21 @@ public class Main extends JavaPlugin implements Listener {
 				if (sender.hasPermission("fakeddos.use")) {
 			
 					if (args.length == 0) {
-						sender.sendMessage(prefix + getConfig().getString("NoArgsMessage"));	
+						sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', getConfig().getString("NoArgsMessage")));	
 					}		
 					else {
 							Player target = Bukkit.getServer().getPlayer(args[0]);
 							if (target == null) {
-								sender.sendMessage(prefix + getConfig().getString("TargetOffline").replaceAll("%TARGET", args[0]));
+								sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', getConfig().getString("TargetOffline").replaceAll("%TARGET", args[0])));
 							}
 					
 							else {							
 								if (target == sender) {
-									sender.sendMessage(prefix + getConfig().getString("AutoDDoSMessage"));
+									sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', getConfig().getString("AutoDDoSMessage")));
 								}							
 								else{
 									
-									sender.sendMessage(prefix + getConfig().getString("SentDDoSMessage").replaceAll("%TARGET", target.getName().toString())); 
+									sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', getConfig().getString("SentDDoSMessage").replaceAll("%TARGET", target.getName().toString()))); 
 									
 									CraftPlayer craftplayer = (CraftPlayer) target;
 									PlayerConnection connection = craftplayer.getHandle().playerConnection;
@@ -135,7 +135,7 @@ public class Main extends JavaPlugin implements Listener {
 						}
 					
 					} else {
-						sender.sendMessage(prefix + getConfig().getString("NoReloadPermissions"));
+						sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', getConfig().getString("NoReloadPermissions")));
 					}
 				}
 				else if (args[0].equalsIgnoreCase("info")){
@@ -147,7 +147,7 @@ public class Main extends JavaPlugin implements Listener {
 				}
 				else {
 					if (sender instanceof Player){
-						sender.sendMessage(prefix + getConfig().getString("WrongCommand"));
+						sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', getConfig().getString("WrongCommand")));
 					}else{
 						getLogger().info(getConfig().getString("WrongCommand"));
 					}
@@ -155,7 +155,7 @@ public class Main extends JavaPlugin implements Listener {
 			}
 			if (args.length > 1){
 				if (sender instanceof Player){
-					sender.sendMessage(prefix + getConfig().getString("TooManyArgs"));
+					sender.sendMessage(prefix + ChatColor.translateAlternateColorCodes('&', getConfig().getString("TooManyArgs")));
 				}else{
 					getLogger().info(getConfig().getString("TooManyArgs"));
 				}
