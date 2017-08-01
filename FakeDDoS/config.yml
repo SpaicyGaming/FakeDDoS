@@ -27,5 +27,7 @@ Effects:
 #This message will be displayed if you try to execute /ddos [arg] from the console
 OnlyPlayerCmd: '&cThis command can only be executed by players.'
 
+
+CheckForUpdates: true
 ####DO NOT TOUCH###
 ConfigVersion: 1.3
