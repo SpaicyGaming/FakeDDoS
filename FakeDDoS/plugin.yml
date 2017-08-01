@@ -1,0 +1,12 @@
+main: io.github.spaicygaming.fakeddos.FakeDDoS
+
+author: SpaicyGaming
+name: FakeDDoS
+version: 1.3
+
+commands:
+   ddos:
+     description: FakeDDoS a player.
+     
+   fakeddos:
+     description: Shows subcommands.

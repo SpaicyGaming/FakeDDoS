@@ -1,0 +1,31 @@
+##################################
+#         FakeDDoS plugin        #
+#               by               #
+#          SpaicyGaming          #
+##################################
+
+#To use /ddos command you need the permission "fakeddos.use"
+NoPerms: '&cSorry, you don''t have enough permissions.'
+AutoDDoSMessage: '&cYou can''t DDoS &lyourself!'
+
+#Title Editor    {sender} = attack sender
+UnderAttacTitle: '&4&lDDoS Attack!'
+UnderAttacSubtitle: '&fFrom {sender}'
+
+# {target} = player under ddos attack
+SentDDoSMessage: '&bYou dossed &c{target}'
+TargetOffline: '&cThe player &o''{target}''&r &cis not Online.'
+
+Effects:
+  Target:
+    Sounds: true
+    Particles: true
+  Sender:
+    Sounds: true
+    Particles: true
+
+#This message will be displayed if you try to execute /ddos [arg] from the console
+OnlyPlayerCmd: '&cThis command can only be executed by players.'
+
+####DO NOT TOUCH###
+ConfigVersion: 1.3
