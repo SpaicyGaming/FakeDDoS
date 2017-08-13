@@ -44,6 +44,8 @@ public class FakeDDoS extends JavaPlugin implements Listener {
 	        console.sendMessage("[FakeDDoS] " + ChatColor.RED + "OUTDATED CONFIG FILE DETECTED, PLEASE DELETE THE OLD ONE!");
 	    }
 	    
+	    setupTitles();
+	    
 	    //Check for Updates
 		if (checkupdates){
 			updates = UpdateChecker.getLastUpdate();
