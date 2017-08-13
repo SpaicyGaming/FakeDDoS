@@ -63,17 +63,10 @@ public class FakeDDosCmds implements CommandExecutor{
 					return false;
 				}		
 				
+				// Send titles and messages
 				p.sendMessage(cp("SentDDoSMessage", "{target}", target.getName()));
-				
-				IChatBaseComponent chatTitle = ChatSerializer.a("{\"text\":\"" + c("UnderAttacTitle") + "\"}");
-				IChatBaseComponent chatSubTitle = ChatSerializer.a("{\"text\":\"" + c("UnderAttacSubtitle").replace("{sender}", p.getName()) + "\"}");
-				PacketPlayOutTitle title = new PacketPlayOutTitle(EnumTitleAction.TITLE, chatTitle);
-				PacketPlayOutTitle subtitle = new PacketPlayOutTitle(EnumTitleAction.SUBTITLE, chatSubTitle);
-				
-				CraftPlayer craftplayer = (CraftPlayer) target;
-				PlayerConnection connection = craftplayer.getHandle().playerConnection;
-				connection.sendPacket(title);
-				connection.sendPacket(subtitle);									
+				main.sendTitles(p, target); // p = sender
+									
 				
 				// Effects and Sounds
 
@@ -142,10 +135,6 @@ public class FakeDDosCmds implements CommandExecutor{
 	return false;
 	}
 	
-	// Color
-	private String c(String str){
-		return ChatColor.translateAlternateColorCodes('&', main.getConfig().getString(str));
-	}
 	// Color + Prefix
 	private String cp(String str){
 		return prefix + ChatColor.translateAlternateColorCodes('&', main.getConfig().getString(str));

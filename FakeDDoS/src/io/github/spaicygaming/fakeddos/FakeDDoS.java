@@ -8,10 +8,20 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import io.github.spaicygaming.fakeddos.titles.Titles;
+import io.github.spaicygaming.fakeddos.titles.Titles_1_10_R1;
+import io.github.spaicygaming.fakeddos.titles.Titles_1_11_R1;
+import io.github.spaicygaming.fakeddos.titles.Titles_1_12_R1;
+import io.github.spaicygaming.fakeddos.titles.Titles_1_8_R2;
+import io.github.spaicygaming.fakeddos.titles.Titles_1_8_R3;
+import io.github.spaicygaming.fakeddos.titles.Titles_1_9_R1;
+import io.github.spaicygaming.fakeddos.titles.Titles_1_9_R2;
+
 public class FakeDDoS extends JavaPlugin implements Listener {
 
 	public String projectlink= "http://bit.ly/FakeDDoS";
 	private static FakeDDoS instance;
+	private Titles titles;
 	boolean checkupdates = getConfig().getBoolean("CheckForUpdates");
 	private Object[] updates;
 	
@@ -82,6 +92,57 @@ public class FakeDDoS extends JavaPlugin implements Listener {
 			}
 		}
 	}
+	
+	// Color
+	public static String c(String str){
+		return ChatColor.translateAlternateColorCodes('&', getInstance().getConfig().getString(str));
+	}
+	
+	public boolean setupTitles(){
+		String version = null;
+		try{
+			version = getServer().getClass().getPackage().getName().replace(".",  ",").split(",")[3];
+		}catch(ArrayIndexOutOfBoundsException ex){
+			return false;
+		}
+
+		switch (version) {
+		case "v1_8_R2":
+			titles = new Titles_1_8_R2();
+			break;
+		case "v1_8_R3":
+			titles = new Titles_1_8_R3();
+			break;
+		case "v1_9_R1":
+			titles = new Titles_1_9_R1();
+			break;
+		case "v1_9_R2":
+			titles = new Titles_1_9_R2();
+			break;
+		case "v1_10_R1":
+			titles = new Titles_1_10_R1();
+			break;
+		case "v1_11_R1":
+			titles = new Titles_1_11_R1();
+			break;
+		case "v1_12_R1":
+			titles = new Titles_1_12_R1();
+			break;
+
+		default:
+			getServer().getConsoleSender().sendMessage(ChatColor.RED + "Cannot send titles. Is your server version supported by FakeDDoS?");
+			break;
+		}
+		
+		return false;
+	}
+	
+	public void sendTitles(Player sender, Player target){
+		this.titles.sendTitles(sender, target);
+	}
+	
+	
+	
 	
 	
 }
